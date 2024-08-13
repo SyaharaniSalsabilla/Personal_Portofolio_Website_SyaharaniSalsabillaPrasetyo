@@ -1,0 +1,316 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background-color: #f5e6ca;
+    color: #c84b31;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #f5e6ca;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    right: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo a h1 {
+    color: #c84b31;
+    font-size: 20px;
+    margin: 0;
+    border-bottom: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-weight: 600;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #c84a318b;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #c84b31;
+}
+
+nav ul li a.active::after,
+nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #346751;
+    transition: width 0.3s;
+}
+
+.github-icon img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    border: 2px solid #c84b31;
+}
+
+.github-icon a:hover img {
+    opacity: 0.8;
+}
+
+/*------ scrollbar ------*/
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #34675133; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c84b31; 
+    border-radius: 10px;
+}
+
+/*------ portfolio ------*/
+
+.portfolio {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.portfolio .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.portfolio h2 {
+    color: #c84b31;
+    font-size: 30px;
+    text-align: center;
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.portfolio p {
+    color: #c84b31;
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.portfolio .projects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: scale(0.5); 
+    animation: appear 1.5s ease-in-out forwards;
+    animation-delay: 0.2s;
+}
+
+.portfolio .project {
+    background-color: #346751;
+    padding: 20px;
+    border-radius: 20px;
+    width: 27%;
+    margin-bottom: 40px;
+    margin: 10px;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.portfolio .project:hover{
+    transform: scale(1.02);
+}
+
+.portfolio .project img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.portfolio .project h3 {
+    color: #f5e6ca;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.portfolio .project p {
+    color: #f5e6ca;
+    text-align: justify;
+    animation: none;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #f5e6ca;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.portfolio .project p strong {
+    color: #f5e6ca;
+}
+
+.project-icons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.project-icons a {
+    display: flex;
+}
+
+.project-icons img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+}
+
+.project-icons a:hover {
+    opacity: 0.8;
+}
+
+/*------ certification ------*/
+
+.certification-section {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 70px;
+}
+
+.certification-section h2 {
+    font-size: 30px;
+    text-align: center;
+    opacity: 0;
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.certification-section p {
+    color: #c84b31;
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.certification-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.certification-item {
+    background-color: #346751;
+    color: #f5e6ca;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.certification-item img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.certification-item span {
+    font-size: 15px;
+}
+
+.certification-item span strong{
+    font-size: 18px;
+}
+
+.certification-item:hover {
+    transform: scale(1.05);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes appear {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.portfolio-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.portfolio-button {
+    background-color: #346751;
+    color: #f5e6ca;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-button:hover {
+    background-color: #c84b31;
+    transform: scale(1.05);
+}
