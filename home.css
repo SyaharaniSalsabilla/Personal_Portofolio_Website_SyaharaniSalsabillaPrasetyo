@@ -13,6 +13,7 @@ header {
     align-items: center;
     padding: 20px 40px;
     background-color: #f5e6ca;
+    position: relative;
 }
 
 .logo a {
@@ -73,6 +74,36 @@ nav ul li a:hover::after {
 
 .github-icon a:hover img {
     opacity: 0.8;
+}
+
+/*------ hamburger menu ------*/
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #c84b31;
+    margin: 5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, -7px);
 }
 
 /*------ scrollbar ------*/
@@ -172,5 +203,153 @@ nav ul li a:hover::after {
     to {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+/*------ media queries ------*/
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo a h1 {
+        font-size: 16px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #f5e6ca;
+        flex-direction: column;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 10px 20px;
+        border-bottom: 1px solid #c84b3133;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .github-icon {
+        position: absolute;
+        top: 20px;
+        right: 70px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .github-icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .intro {
+        flex-direction: column;
+        margin-top: 50px;
+        padding: 0 20px;
+    }
+
+    .intro-text {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .intro-text h1 {
+        font-size: 48px;
+        margin: 10px 0;
+    }
+
+    .intro-text p {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .intro-image {
+        margin-left: 0;
+    }
+
+    .intro-image img {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    header {
+        padding: 12px 15px;
+    }
+
+    .logo a h1 {
+        font-size: 14px;
+    }
+
+    .github-icon {
+        right: 60px;
+    }
+
+    .github-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    nav ul li {
+        padding: 8px 15px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .intro {
+        margin-top: 40px;
+        padding: 0 15px;
+    }
+
+    .intro-text h1 {
+        font-size: 32px;
+        margin: 5px 0;
+    }
+
+    .intro-text h2 {
+        font-size: 18px;
+    }
+
+    .intro-text p {
+        font-size: 14px;
+    }
+
+    .intro-image img {
+        width: 200px;
+        height: 200px;
     }
 }

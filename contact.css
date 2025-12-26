@@ -6,6 +6,8 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 80px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 header {
@@ -81,6 +83,36 @@ nav ul li a:hover::after {
     opacity: 0.8;
 }
 
+/*------ hamburger menu ------*/
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #c84b31;
+    margin: 5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, -7px);
+}
+
 /*------ scrollbar ------*/
 
 ::-webkit-scrollbar {
@@ -108,7 +140,8 @@ nav ul li a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .form {
@@ -117,10 +150,10 @@ nav ul li a:hover::after {
     background-color: #c84b31;
     border-radius: 20px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
     overflow: hidden;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    box-sizing: border-box;
 }
 
 .contact-info {
@@ -350,5 +383,250 @@ textarea.input {
     100% {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+/*------ media queries ------*/
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo a h1 {
+        font-size: 16px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #f5e6ca;
+        flex-direction: column;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 10px 20px;
+        border-bottom: 1px solid #c84b3133;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .github-icon {
+        position: absolute;
+        top: 20px;
+        right: 70px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .github-icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    .form {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .contact-info {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-form {
+        padding: 0;
+    }
+
+    .contact-form:before {
+        display: none;
+    }
+
+    form {
+        padding: 2rem 1.5rem;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .text {
+        font-size: 0.95rem;
+        margin: 1rem 0 1.5rem 0;
+    }
+
+    .information {
+        font-size: 0.9rem;
+    }
+
+    .icon {
+        width: 25px;
+        margin-right: 0.5rem;
+    }
+
+    .social-icons a {
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+    }
+
+    .input {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    textarea.input {
+        min-height: 120px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.2rem;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;
+    }
+
+    header {
+        padding: 12px 15px;
+    }
+
+    .logo a h1 {
+        font-size: 14px;
+    }
+
+    .hamburger span {
+        width: 22px;
+        height: 2.5px;
+        margin: 4px 0;
+    }
+
+    .github-icon {
+        right: 55px;
+    }
+
+    .github-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    nav ul li {
+        padding: 8px 15px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .form {
+        border-radius: 15px;
+    }
+
+    .contact-info {
+        padding: 1.5rem 1.2rem;
+    }
+
+    form {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .text {
+        font-size: 0.85rem;
+        margin: 0.8rem 0 1.2rem 0;
+    }
+
+    .information {
+        font-size: 0.8rem;
+        margin: 0.5rem 0;
+    }
+
+    .information p {
+        word-break: break-word;
+    }
+
+    .icon {
+        width: 22px;
+        margin-right: 0.4rem;
+    }
+
+    .social-media {
+        padding: 1.5rem 0 0 0;
+    }
+
+    .social-media p {
+        font-size: 0.9rem;
+    }
+
+    .social-icons a {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 0.85rem;
+    }
+
+    .input {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.9rem;
+    }
+
+    textarea.input {
+        min-height: 100px;
+        padding: 0.7rem 0.9rem;
+    }
+
+    .input-container label {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+        width: 100%;
     }
 }

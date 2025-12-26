@@ -6,6 +6,8 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 80px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 header {
@@ -81,6 +83,36 @@ nav ul li a:hover::after {
     opacity: 0.8;
 }
 
+/*------ hamburger menu ------*/
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #c84b31;
+    margin: 5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, -7px);
+}
+
 /*------ scrollbar ------*/
 
 ::-webkit-scrollbar {
@@ -106,6 +138,8 @@ nav ul li a:hover::after {
     background-color: #f5e6ca; 
     width: 100%;
     margin: auto;
+    box-sizing: border-box;
+    padding: 0 20px;
 }
 
 .box {
@@ -186,10 +220,11 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0;
+    padding: 40px 20px;
     justify-content: center;
     margin: auto;
     margin-bottom: 70px;
+    box-sizing: border-box;
 }
 
 .section-title {
@@ -229,6 +264,8 @@ hr {
     gap: 20px;
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
+    padding: 0 20px;
 }
 
 .skill-item {
@@ -286,5 +323,250 @@ hr {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+/*------ media queries ------*/
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo a h1 {
+        font-size: 16px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #f5e6ca;
+        flex-direction: column;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 10px 20px;
+        border-bottom: 1px solid #c84b3133;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .github-icon {
+        position: absolute;
+        top: 20px;
+        right: 70px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .github-icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .box {
+        padding: 30px 20px;
+        margin-top: 10px;
+        border-radius: 15px;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo {
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .photo img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .description p {
+        font-size: 16px;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .skills-section {
+        padding: 20px 20px;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .menu-item {
+        padding: 8px 15px;
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .skill-item {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .skill-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .skill-item span {
+        font-size: 14px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;
+    }
+
+    header {
+        padding: 12px 15px;
+    }
+
+    .logo a h1 {
+        font-size: 14px;
+    }
+
+    .hamburger span {
+        width: 22px;
+        height: 2.5px;
+        margin: 4px 0;
+    }
+
+    .github-icon {
+        right: 55px;
+    }
+
+    .github-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    nav ul li {
+        padding: 8px 15px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .box {
+        padding: 20px 15px;
+        margin-top: 5px;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    hr {
+        margin: 20px 0;
+    }
+
+    .photo img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .description p {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .skills-section {
+        padding: 15px 15px;
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .menu-item {
+        padding: 6px 12px;
+        margin: 4px;
+        font-size: 12px;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 10px;
+    }
+
+    .skill-item {
+        padding: 12px;
+    }
+
+    .skill-item img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .skill-item span {
+        font-size: 12px;
     }
 }

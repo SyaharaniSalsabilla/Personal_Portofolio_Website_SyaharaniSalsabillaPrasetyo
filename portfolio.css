@@ -6,6 +6,8 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 80px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 header {
@@ -81,6 +83,36 @@ nav ul li a:hover::after {
     opacity: 0.8;
 }
 
+/*------ hamburger menu ------*/
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #c84b31;
+    margin: 5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, -7px);
+}
+
 /*------ scrollbar ------*/
 
 ::-webkit-scrollbar {
@@ -104,11 +136,14 @@ nav ul li a:hover::after {
     align-items: center;
     justify-content: center;
     margin: auto;
+    box-sizing: border-box;
 }
 
 .portfolio .container {
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .portfolio h2 {
@@ -134,6 +169,7 @@ nav ul li a:hover::after {
     transform: scale(0.5); 
     animation: appear 1.5s ease-in-out forwards;
     animation-delay: 0.2s;
+    box-sizing: border-box;
 }
 
 .portfolio .project {
@@ -145,6 +181,7 @@ nav ul li a:hover::after {
     margin: 10px;
     position: relative;
     transition: transform 0.3s;
+    box-sizing: border-box;
 }
 
 .portfolio .project:hover{
@@ -213,10 +250,11 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0;
+    padding: 40px 20px;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto;
     margin-bottom: 70px;
+    box-sizing: border-box;
 }
 
 .certification-section h2 {
@@ -239,7 +277,9 @@ hr {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
+    max-width: 100%;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .certification-item {
@@ -250,6 +290,7 @@ hr {
     align-items: center;
     padding: 20px;
     transition: transform 0.3s;
+    box-sizing: border-box;
 }
 
 .certification-item img {
@@ -292,15 +333,16 @@ hr {
 .portfolio-button-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 50px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .portfolio-button {
     background-color: #346751;
     color: #f5e6ca;
-    width: 100%;
-    margin: 0 auto;
+    display: inline-block;
     text-align: center;
     padding: 15px 30px;
     font-size: 1.2rem;
@@ -308,9 +350,260 @@ hr {
     border-radius: 15px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    box-sizing: border-box;
 }
 
 .portfolio-button:hover {
     background-color: #c84b31;
     transform: scale(1.05);
+}
+
+/*------ media queries ------*/
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo a h1 {
+        font-size: 16px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #f5e6ca;
+        flex-direction: column;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        padding: 10px 20px;
+        border-bottom: 1px solid #c84b3133;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .github-icon {
+        position: absolute;
+        top: 20px;
+        right: 70px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .github-icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .portfolio .container {
+        width: 95%;
+    }
+
+    .portfolio h2 {
+        font-size: 24px;
+    }
+
+    .portfolio p {
+        font-size: 16px;
+    }
+
+    .portfolio .project {
+        width: calc(50% - 20px);
+        margin: 10px;
+    }
+
+    .certification-section {
+        padding: 30px 20px;
+    }
+
+    .certification-section h2 {
+        font-size: 24px;
+    }
+
+    .certification-section p {
+        font-size: 16px;
+    }
+
+    .certification-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .certification-item {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .certification-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .certification-item span {
+        font-size: 13px;
+    }
+
+    .portfolio-button-container {
+        margin-top: 30px;
+    }
+
+    .portfolio-button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;
+    }
+
+    header {
+        padding: 12px 15px;
+    }
+
+    .logo a h1 {
+        font-size: 14px;
+    }
+
+    .hamburger span {
+        width: 22px;
+        height: 2.5px;
+        margin: 4px 0;
+    }
+
+    .github-icon {
+        right: 55px;
+    }
+
+    .github-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    nav ul li {
+        padding: 8px 15px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .portfolio .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .portfolio h2 {
+        font-size: 20px;
+    }
+
+    .portfolio p {
+        font-size: 14px;
+    }
+
+    .portfolio .project {
+        width: 100%;
+        margin: 8px 0;
+        margin-bottom: 30px;
+        padding: 15px;
+    }
+
+    .portfolio .project h3 {
+        font-size: 18px;
+    }
+
+    .portfolio .project p {
+        font-size: 13px;
+    }
+
+    .project-icons {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .project-icons img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .certification-section {
+        padding: 20px 15px;
+        margin-bottom: 40px;
+    }
+
+    .certification-section h2 {
+        font-size: 20px;
+    }
+
+    .certification-section p {
+        font-size: 14px;
+    }
+
+    .certification-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .certification-item {
+        padding: 12px;
+    }
+
+    .certification-item img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 8px;
+    }
+
+    .certification-item span {
+        font-size: 12px;
+    }
+
+    .certification-item span strong {
+        font-size: 14px;
+    }
+
+    .portfolio-button-container {
+        margin-top: 20px;
+    }
+
+    .portfolio-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
 }
